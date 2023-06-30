@@ -58,23 +58,5 @@ class Jenkins_Scaper():
         return change_list
     
     def download(self, file, path):
-        with requests.get(self.file_dict[file], stream=True) as r:
-            
-            try:
-                fileSize = int(r.headers["Content-Length"])
-                self.progressBar.show()
-                self.setFixedSize(self.mainLayout.sizeHint())
-                num_bars = (fileSize / chunkSize)
-                time.sleep(3)
-                self.progressBar.setMaximum(num_bars)
-
-                with open(os.path.join(dir, file), "wb") as f:
-                    for i, chunk in enumerate(r.iter_content(chunk_size=chunkSize)):
-                            self.progressBar.updateBar(i)
-                            f.write(chunk)
-                            if i >= int(num_bars):
-                                self.progressBar.hide()
-                                self.setFixedSize(self.mainLayout.sizeHint())
-            except KeyError:
-                self.showAnotherWindow("Build Error", "Error downloading build")
-                print('Error')
+        pass
+        # TODO - move download function from main.py to here
