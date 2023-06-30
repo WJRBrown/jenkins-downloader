@@ -212,5 +212,3 @@ window = MainWindow()
 window.show()
 
 sys.exit(app.exec())
-
-#https://jenkins-design.thefoundry.co.uk/job/modo/
